@@ -1,6 +1,5 @@
 package com.example.city.controller;
 
-import java.lang.annotation.Repeatable;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
