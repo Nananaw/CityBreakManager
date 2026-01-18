@@ -26,41 +26,41 @@ public class CityController {
         this.cityService = cityService;
     }
 
-    @GetMapping("/getAllCities")
+    @GetMapping("/cities")
     public List<City> getAllCities() {
         return cityService.findAllCities();
     }
 
-    @GetMapping("/getAllTrips")
+    @GetMapping("/trips")
     public List<Trip> getAllTrips() {
         return cityService.findAllTrips();
     }
 
-    @GetMapping("/getCity/{id}")
+    @GetMapping("/cities/{id}")
     public ResponseEntity<City> getCityById(@PathVariable int id) {
         return cityService.findCityById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/getTrip/{id}")
+    @GetMapping("/trips/{id}")
     public ResponseEntity<Trip> getTripById(@PathVariable int id) {
         return cityService.findTripById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/addCity")
+    @PostMapping("/cities")
     public City createCity(@RequestBody City city) {
         return cityService.createCity(city);
     }
 
-    @PostMapping("/addTrip")
+    @PostMapping("/trips")
     public Trip createTrip(@RequestBody Trip trip) {
         return cityService.createTrip(trip);
     }
 
-    @PutMapping("/updateCity/{id}")
+    @PutMapping("/cities/{id}")
     public ResponseEntity<City> updateCity(@PathVariable int id, @RequestBody City updatedCity) {
         City city = cityService.updateCity(id, updatedCity);
         if (city == null) {
@@ -69,7 +69,7 @@ public class CityController {
         return ResponseEntity.ok(city);
     }
 
-    @PutMapping("/updateTrip/{id}")
+    @PutMapping("/trips/{id}")
     public ResponseEntity<Trip> updateTrip(@PathVariable int id, @RequestBody Trip updatedTrip) {
         Trip trip = cityService.updateTrip(id, updatedTrip);
         if (trip == null) {
@@ -78,13 +78,13 @@ public class CityController {
         return ResponseEntity.ok(trip);
     }
 
-    @DeleteMapping("/deleteCity/{id}")
+    @DeleteMapping("/cities/{id}")
     public ResponseEntity<Void> deleteCity(@PathVariable int id) {
         cityService.deleteCityById(id);
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/deleteTrip/{id}")
+    @DeleteMapping("/trips/{id}")
     public ResponseEntity<Void> deleteTrip(@PathVariable int id) {
         cityService.deleteTripById(id);
         return ResponseEntity.noContent().build();
