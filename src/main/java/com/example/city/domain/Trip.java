@@ -1,16 +1,16 @@
 package com.example.city.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Trip {
     private int id;
     private City city;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private int rating;
     private String personalNotes;
 
-    public Trip(int id, City city, Date startDate, Date endDate, int rating, String personalNotes) {
+    public Trip(int id, City city, LocalDate startDate, LocalDate endDate, int rating, String personalNotes) {
         this.id = id;
         this.city = city;
         this.startDate = startDate;
@@ -27,11 +27,11 @@ public class Trip {
         return city;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
@@ -51,11 +51,11 @@ public class Trip {
         this.city = city;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
