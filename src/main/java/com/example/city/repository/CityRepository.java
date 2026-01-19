@@ -72,4 +72,8 @@ public class CityRepository {
     public List<Trip> findAllTrips() {
         return new ArrayList<>(trips.values());
     }
+
+    public boolean cityIdExists(int id) {
+        return cities.containsKey(id);
+    }
 }

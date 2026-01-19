@@ -56,8 +56,10 @@ public class CityController {
     }
 
     @PostMapping("/trips")
-    public Trip createTrip(@RequestBody Trip trip) {
-        return cityService.createTrip(trip);
+    public ResponseEntity<Trip> createTrip(@RequestBody Trip trip) {
+        return cityService.createTrip(trip)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/cities/{id}")

@@ -4,15 +4,15 @@ import java.time.LocalDate;
 
 public class Trip {
     private int id;
-    private City city;
+    private int cityId;
     private LocalDate startDate;
     private LocalDate endDate;
     private int rating;
     private String personalNotes;
 
-    public Trip(int id, City city, LocalDate startDate, LocalDate endDate, int rating, String personalNotes) {
+    public Trip(int id, int cityId, LocalDate startDate, LocalDate endDate, int rating, String personalNotes) {
         this.id = id;
-        this.city = city;
+        this.cityId = cityId;
         this.startDate = startDate;
         this.endDate = endDate;
         this.rating = rating;
@@ -23,8 +23,8 @@ public class Trip {
         return id;
     }
 
-    public City getCity() {
-        return city;
+    public int getCityId() {
+        return cityId;
     }
 
     public LocalDate getStartDate() {
@@ -47,8 +47,8 @@ public class Trip {
         this.id = id;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
     }
 
     public void setStartDate(LocalDate startDate) {

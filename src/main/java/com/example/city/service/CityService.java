@@ -17,13 +17,14 @@ public class CityService {
         this.cityRepository = cityRepository;
     }
 
-
     public City createCity(City city) {
         return cityRepository.saveCity(city);
     }
 
-    public Trip createTrip(Trip trip) {
-        return cityRepository.saveTrip(trip);
+    public Optional<Trip> createTrip(Trip trip) {
+        return cityRepository.cityIdExists(trip.getCityId())
+                ? Optional.of(cityRepository.saveTrip(trip))
+                : Optional.empty();
     }
 
     public void deleteCityById(int id) {
