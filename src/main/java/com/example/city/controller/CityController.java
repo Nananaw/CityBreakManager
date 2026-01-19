@@ -2,6 +2,7 @@ package com.example.city.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +21,8 @@ import com.example.city.service.CityService;
 @RequestMapping("/api/cities")
 public class CityController {
 
+    @Autowired
     private CityService cityService;
-
-    public CityController(CityService cityService) {
-        this.cityService = cityService;
-    }
 
     @GetMapping("/cities")
     public List<City> getAllCities() {

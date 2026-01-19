@@ -3,6 +3,7 @@ package com.example.city.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.city.domain.City;
@@ -11,11 +12,9 @@ import com.example.city.repository.CityRepository;
 
 @Service
 public class CityService {
-    private CityRepository cityRepository;
 
-    public CityService(CityRepository cityRepository) {
-        this.cityRepository = cityRepository;
-    }
+    @Autowired
+    private CityRepository cityRepository;
 
     public City createCity(City city) {
         return cityRepository.saveCity(city);
